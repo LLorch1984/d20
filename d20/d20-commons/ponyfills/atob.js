@@ -1,0 +1,1 @@
+global.atob = a => Buffer.from(a, 'Base64').toString('binary')
