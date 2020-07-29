@@ -1,9 +1,12 @@
 const Http = require('./http')
 require('../polyfills/url')
+const fetch = require('node-fetch')
+
 
 module.exports = (method, url, body, headers) => {
     Http.validateMethod(method)
     URL.validate(url)
+    debugger
 
     return (async()=>{
         try{
