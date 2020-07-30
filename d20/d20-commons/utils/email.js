@@ -8,6 +8,6 @@ Email = {
 
 Email.validate = function (email) {
     if(!this.isEmail(email)) throw new Error(`${email} is not an e-mail`)
-}.bind(EMail)
+}.bind(Email)
 
 module.exports = Email
