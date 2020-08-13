@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = {
-    sing(payload, secret, options) {
+    sign(payload, secret, options) {
         return new Promise((resolve, reject) => {
-            jwt.sing(payload, secret, options, (error, token) => {
+            jwt.sign(payload, secret, options, (error, token) => {
                 if(error) return reject(error)
 
                 resolve(token)

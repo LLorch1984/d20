@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -115,7 +114,7 @@ const onSubmit = data => {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#/sign-in" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
