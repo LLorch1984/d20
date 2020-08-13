@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { Route, withRouter, Redirect} from 'react-router-dom'
-import { isUserLoggedIn, register} from 'd20-client-logic'
-import {Body, Register,Login} from '../components'
+import { isUserLoggedIn, register, login} from 'd20-client-logic'
+import {Body, Register,Login, Home, Navbar} from '../components'
 
 
 
@@ -18,7 +18,12 @@ export default withRouter(function({history}) {
 
 const registerHandler = (name, surname,email, password) => {
   register(name,surname,email,password)
-  history.push("/sing-in")
+  history.push("/sign-in")
+}
+
+const loginHandler = (email, password) => {
+  login(email, password)
+  history.push("/home")
 }
 
   return (<>
@@ -26,7 +31,8 @@ const registerHandler = (name, surname,email, password) => {
     <Body>
       <Route exact path="/" render={() => isUserLoggedIn() ? <Redirect to="/home" /> : <Redirect to="/sign-up" />} />
       <Route path="/sign-up" render={() => isUserLoggedIn() ? <Redirect to="/home" /> : <Register  onRegister={registerHandler} />} /> 
-      <Route path="/sing-in" render={()=> isUserLoggedIn() ? <Redirect t0="/home"/> : <Login/>} />
+      <Route path="/sign-in" render={()=> isUserLoggedIn() ? <Redirect to="/home"/> : <Login onLogin={loginHandler}/>} />
+      <Route path="/home" render={() => <Home/> }/>
       
     </Body>
   </div>
